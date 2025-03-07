@@ -1,10 +1,10 @@
 {
-  "name": "ngx-pagination-data-source",
-  "version": "6.0.0",
+  "name": "@daanvdn/ngx-pagination-data-source",
+  "version": "7.0.0",
   "license": "MIT",
-  "author": "Nils Melhorn <mail@nils-mehlhorn.de> (https://nils-mehlhorn.de)",
+  "author": "Daan Van den Nest <daanvdn@gmail.com>",
   "description": "Angular Material Pagination Data Source",
-  "homepage": "https://github.com/nilsmehlhorn/ngx-pagination-data-source",
+  "homepage": "https://github.com/daanvdn/ngx-pagination-data-source",
   "keywords": [
     "rxjs",
     "angular",
@@ -17,10 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nilsmehlhorn/ngx-pagination-data-source.git"
+    "url": "https://github.com/daanvdn/ngx-pagination-data-source.git"
   },
   "bugs": {
-    "url": "https://github.com/nilsmehlhorn/ngx-pagination-data-source/issues"
+    "url": "https://github.com/daanvdn/ngx-pagination-data-source/issues"
   },
   "peerDependencies": {
     "@angular/common": "^14.0.0",
