@@ -1,5 +1,18 @@
+$pwd_absolute_path = (Get-Location).Path
+
 echo "Initializing local npm registry (Verdaccio)"
 .\start-verdaccio.ps1
+
+
+# Fetch existing versions, ensuring an empty array does not break jq
+$versions = npm view @daanvdn/ngx-pagination-data-source versions --json --registry=$local_registry 2>$null
+if ($LASTEXITCODE -eq 0) {
+    Write-Output "The package already exists. Unpublishing the package from local npm registry"
+    npm unpublish @daanvdn/ngx-pagination-data-source -f --registry=$local_registry
+} else {
+    Write-Output "Package does not exist in registry"
+    $versions = @()
+}
 
 $local_registry = "http://localhost:4873"
 #get absolute path to .npmrc
@@ -32,7 +45,7 @@ $packageJson = [PSCustomObject]@{
 }
 
 # Preserve existing properties from the original package.json
-$originalJson = Get-Content -Raw -Path projects/ngx-pagination-data-source/package.json -Encoding utf8 | ConvertFrom-Json
+$originalJson = Get-Content -Raw -Path package.json -Encoding utf8 | ConvertFrom-Json
 Write-Output "Original package.json properties: $($originalJson.PSObject.Properties.Name -join ', ')"
 foreach ($property in $originalJson.PSObject.Properties) {
     if (-not $packageJson.PSObject.Properties[$property.Name]) {
@@ -46,8 +59,10 @@ $packageJsonString = $packageJsonString -replace "\\u003e", ">" -replace "\\u003
 Write-Output "Updated package.json: $packageJsonString"
 
 # Save updated package.json
-$packageJsonString | Out-File -FilePath projects/ngx-pagination-data-source/package.json -Encoding utf8
+$packageJsonString | Out-File -FilePath package.json -Encoding utf8
 npm pack
 
 Write-Output "Publishing npm module to local registry"
 npm publish --access public --registry=$local_registry
+
+cd $pwd_absolute_path
