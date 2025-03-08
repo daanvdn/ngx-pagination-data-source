@@ -1,6 +1,5 @@
 {
   "name": "@daanvdn/ngx-pagination-data-source",
-  "version": "7.0.0",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
@@ -9,7 +8,8 @@
   "publishConfig": {
     "@daanvdn:registry": "http://localhost:4873"
   },
-  "generatedAt": "2025-03-08T14:19:40.0077542+01:00",
+  "generatedAt": "2025-03-08T14:54:17.0471199+01:00",
+  "version": "8.0.0",
   "license": "MIT",
   "author": "Daan Van den Nest <daanvdn@gmail.com>",
   "description": "Angular Material Pagination Data Source",
@@ -32,9 +32,9 @@
     "url": "https://github.com/daanvdn/ngx-pagination-data-source/issues"
   },
   "peerDependencies": {
-    "@angular/cdk": "^15.2.9",
-    "@angular/common": "^15.2.10",
-    "@angular/core": "^15.2.10"
+    "@angular/cdk": "^16.2.12",
+    "@angular/common": "^16.2.12",
+    "@angular/core": "^16.2.12"
   },
   "dependencies": {
     "tslib": "^2.3.1",

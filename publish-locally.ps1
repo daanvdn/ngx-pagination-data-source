@@ -34,7 +34,6 @@ $timestamp = [DateTime]::Now.ToString("o")
 
 $packageJson = [PSCustomObject]@{
     name = "@daanvdn/ngx-pagination-data-source"
-    version = "7.0.0"
     main = "index.js"
     types = "index.d.ts"
     files = @("**/*")
@@ -53,7 +52,7 @@ foreach ($property in $originalJson.PSObject.Properties) {
     }
 }
 
-$packageJsonString = $packageJson | ConvertTo-Json -Compress -Depth 100
+$packageJsonString = $packageJson | ConvertTo-Json -Depth 100
 $packageJsonString = $packageJsonString -replace "\\u003e", ">" -replace "\\u003c", "<"
 
 Write-Output "Updated package.json: $packageJsonString"
