@@ -66,6 +66,6 @@
     "ng-packagr": "^18.2.1",
     "standard-version": "^9.3.1",
     "ts-node": "~10.2.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.4.5"
   }
 }
